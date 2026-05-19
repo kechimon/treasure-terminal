@@ -1,8 +1,4 @@
-"use client";
 import Link from "next/link";
-import { performance } from "../data/performance"
-import { trades } from "../data/trades"
-import { chartData } from "../data/chart"
 import {
   LineChart,
   Line,
@@ -10,7 +6,11 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-} from "recharts"
+} from "recharts";
+
+import { performance } from "../data/performance";
+import { trades } from "../data/trades";
+import { chartData } from "../data/chart";
 
 type Stat = {
   id: string;
@@ -26,6 +26,7 @@ const stats: Stat[] = [
     id: "equity",
     label: "現在の純資産",
     value: performance.equity,
+    hint: "TOTAL ASSET",
     borderClass: "border-sky-400/15",
     valueClass: "text-sky-300",
   },
@@ -33,6 +34,7 @@ const stats: Stat[] = [
     id: "pnl",
     label: "トータルの損益",
     value: performance.pnl,
+    hint: "TOTAL PNL",
     borderClass: "border-lime-400/15",
     valueClass: "text-lime-300",
   },
@@ -40,6 +42,7 @@ const stats: Stat[] = [
     id: "winrate",
     label: "現在の収益率",
     value: performance.winrate,
+    hint: "WIN RATE",
     borderClass: "border-yellow-400/15",
     valueClass: "text-yellow-300",
   },
@@ -48,8 +51,6 @@ const stats: Stat[] = [
 export default function DashboardPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#05070b] text-white">
-
-      {/* Background */}
 
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
 
@@ -66,11 +67,7 @@ export default function DashboardPage() {
 
         <div className="absolute bottom-[-10%] right-[-10%] h-[480px] w-[480px] rounded-full bg-amber-400/12 blur-[170px]" />
 
-        <div className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500/5 blur-[180px]" />
-
       </div>
-
-      {/* Header */}
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/45 backdrop-blur-3xl">
 
@@ -86,59 +83,30 @@ export default function DashboardPage() {
               ヌシ PERFORMANCE
             </h1>
 
-            <p className="mt-2 text-[10px] font-bold tracking-[0.25em] text-emerald-400 animate-pulse uppercase">
-              ● LIVE PERFORMANCE
-            </p>
-
           </div>
 
           <Link
             href="/"
-            className="group rounded-2xl border border-white/10 bg-white/5 px-4 py-2 outline-none ring-sky-400/40 transition hover:bg-white/10 focus-visible:ring-2"
+            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10"
           >
-
-            <p className="text-[10px] tracking-[0.2em] text-gray-500 uppercase">
-              Back
-            </p>
-
-            <p className="mt-1 text-sm font-black text-white transition group-hover:text-sky-200">
-              Home
-            </p>
-
+            Home
           </Link>
 
         </div>
 
       </header>
 
-      {/* Body */}
+      <section className="relative z-10 mx-auto max-w-[1200px] px-4 py-6 pb-16">
 
-      <section className="relative z-10 mx-auto max-w-[1200px] px-4 py-6 pb-16 md:py-8">
-
-        <div className="overflow-hidden rounded-[34px] border border-white/10 bg-black/40 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur-3xl">
+        <div className="rounded-[34px] border border-white/10 bg-black/40 backdrop-blur-3xl">
 
           <div className="h-[4px] bg-gradient-to-r from-sky-400 via-yellow-300 to-lime-300" />
 
           <div className="p-5 md:p-10">
 
-            <p className="text-[11px] font-semibold tracking-[0.35em] text-sky-300 uppercase">
-              Real Result
-            </p>
-
-            <h2 className="mt-5 max-w-[980px] text-[44px] font-black leading-tight tracking-tight text-white md:text-[76px]">
-              FX&GOLD（XAUUSD）成績
-              <span className="bg-gradient-to-r from-sky-300 via-white to-amber-200 bg-clip-text text-transparent">
-                公開中。
-              </span>
+            <h2 className="text-[44px] font-black text-white md:text-[76px]">
+              FX&GOLD 成績
             </h2>
-
-            <p className="mt-8 max-w-[760px] text-sm leading-7 text-gray-300 md:text-lg md:leading-8">
-              弱小トレーダー。
-              <br className="hidden md:block" />
-              <span className="md:ml-1">
-                勝っては負けて（　＾ω＾）……行ったり来たり。
-              </span>
-            </p>
 
             {/* Stats */}
 
@@ -148,18 +116,20 @@ export default function DashboardPage() {
 
                 <section
                   key={s.id}
-                  className={`rounded-[28px] border ${s.borderClass} bg-[#0b1118]/90 p-5 md:p-7 shadow-inner shadow-black/30 transition hover:-translate-y-0.5 hover:border-white/15 hover:bg-[#0b1118]`}
+                  className={`rounded-[28px] border ${s.borderClass} bg-[#0b1118]/90 p-5`}
                 >
 
-                  <h3 className="text-sm font-medium text-gray-500">
+                  <p className="text-xs tracking-[0.2em] text-gray-500 uppercase">
+                    {s.hint}
+                  </p>
+
+                  <h3 className="mt-2 text-sm text-gray-400">
                     {s.label}
                   </h3>
 
-                  <p className={`mt-4 text-4xl font-black tabular-nums md:text-5xl ${s.valueClass}`}>
+                  <p className={`mt-4 text-4xl font-black ${s.valueClass}`}>
                     {s.value}
                   </p>
-
-                  
 
                 </section>
 
@@ -167,102 +137,66 @@ export default function DashboardPage() {
 
             </div>
 
-            {/* Comment */}
+            {/* Chart */}
 
-            <section className="mt-10 rounded-[30px] border border-white/10 bg-[#0b1118]/90 p-5 shadow-inner shadow-black/25 md:p-8">
+            <section className="mt-10 rounded-[30px] border border-white/10 bg-[#0b1118]/90 p-5 md:p-8">
 
-              <p className="text-[11px] font-semibold tracking-[0.35em] text-amber-300 uppercase">
-                Comment
-              </p>
+              <div className="flex items-center justify-between">
 
-              <h2 className="mt-5 text-2xl font-black leading-snug text-white md:text-[34px]">
-                一気に稼ぐより、
-                <br className="md:hidden" />
-                まずは退場しない。
-              </h2>
+                <div>
 
-              <div className="mt-6 space-y-5 text-sm leading-7 text-gray-300 md:text-base md:leading-8">
+                  <p className="text-[11px] font-semibold tracking-[0.35em] text-sky-300 uppercase">
+                    Asset Chart
+                  </p>
 
-                <p>
-                  FXはまだ分からないことだらけ。
-                </p>
+                  <h2 className="mt-3 text-2xl font-black text-white">
+                    資産推移
+                  </h2>
 
-                <p>
-                  でも毎日チャートを見て、少しずつ経験を積んでいきたい。
-                </p>
+                </div>
 
-                <p>
-                  とりあえず目標は、
-                  <span className="font-semibold text-white">
-                    「長く相場に残ること」
-                  </span>
-                  。
-                </p>
+              </div>
+
+              <div className="mt-8 h-[320px] w-full">
+
+                <ResponsiveContainer width="100%" height="100%">
+
+                  <LineChart data={chartData}>
+
+                    <XAxis
+                      dataKey="date"
+                      stroke="#888"
+                    />
+
+                    <YAxis
+                      stroke="#888"
+                    />
+
+                    <Tooltip />
+
+                    <Line
+                      type="monotone"
+                      dataKey="equity"
+                      stroke="#38bdf8"
+                      strokeWidth={3}
+                      dot={false}
+                    />
+
+                  </LineChart>
+
+                </ResponsiveContainer>
 
               </div>
 
             </section>
 
-            <section className="mt-10 rounded-[30px] border border-white/10 bg-[#0b1118]/90 p-5 shadow-inner shadow-black/25 md:p-8">
+            {/* Trade History */}
 
-  <p className="text-[11px] font-semibold tracking-[0.35em] text-sky-300 uppercase">
-    Equity Chart
-  </p>
+            <section className="mt-10 rounded-[30px] border border-white/10 bg-[#0b1118]/90 p-5 md:p-8">
 
-  <h2 className="mt-3 text-2xl font-black text-white md:text-3xl">
-    資産推移グラフ
-  </h2>
-
-  <div className="mt-8 h-[260px] w-full">
-
-    <ResponsiveContainer width="100%" height="100%">
-
-      <LineChart data={chartData}>
-
-        <XAxis dataKey="date" stroke="#888" />
-
-        <YAxis stroke="#888" />
-
-        <Tooltip />
-
-        <Line
-          type="monotone"
-          dataKey="equity"
-          stroke="#38bdf8"
-          strokeWidth={3}
-        />
-
-      </LineChart>
-
-    </ResponsiveContainer>
-
-  </div>
-
-</section>
-
-            {/* TRADE HISTORY */}
-
-            <section className="mt-10 rounded-[30px] border border-white/10 bg-[#0b1118]/90 p-5 shadow-inner shadow-black/25 md:p-8">
-
-              <div className="flex items-center justify-between gap-4">
-
-                <div>
-
-                  <p className="text-[11px] font-semibold tracking-[0.35em] text-lime-300 uppercase">
-                    Trade History
-                  </p>
-
-                  <h2 className="mt-3 text-2xl font-black text-white md:text-3xl">
-                    取引実績
-                  </h2>
-
-                </div>
-
-                <p className="text-xs font-bold text-emerald-400 animate-pulse md:text-sm">
-                  ● MANUAL UPDATE
-                </p>
-
-              </div>
+              <h2 className="text-2xl font-black text-white">
+                取引実績
+              </h2>
 
               <div className="mt-8 overflow-x-auto rounded-[24px] border border-white/10">
 
@@ -281,10 +215,6 @@ export default function DashboardPage() {
                       </th>
 
                       <th className="px-5 py-4">
-                        方向
-                      </th>
-
-                      <th className="px-5 py-4">
                         損益
                       </th>
 
@@ -292,54 +222,47 @@ export default function DashboardPage() {
 
                   </thead>
 
-    <tbody>
+                  <tbody>
 
-  {trades.map((trade, index) => (
+                    {trades.map((trade, index) => (
 
-    <tr key={index} className="border-t border-white/5">
+                      <tr key={index} className="border-t border-white/5">
 
-      <td className="px-5 py-4 text-gray-400">
-        {trade.date}
-      </td>
+                        <td className="px-5 py-4 text-gray-400">
+                          {trade.date}
+                        </td>
 
-      <td
-        className={`px-5 py-4 font-bold ${
-          trade.pair === "USDJPY"
-            ? "text-sky-300"
-            : "text-yellow-300"
-        }`}
-      >
-        {trade.pair} {trade.type}
-      </td>
+                        <td
+                          className={`px-5 py-4 font-bold ${
+                            trade.pair === "USDJPY"
+                              ? "text-sky-300"
+                              : "text-yellow-300"
+                          }`}
+                        >
+                          {trade.pair} {trade.type}
+                        </td>
 
-      <td
-        className={`px-5 py-4 font-black ${
-          trade.profit.includes("-")
-            ? "text-red-400"
-            : "text-emerald-400"
-        }`}
-      >
-        {trade.profit}
-      </td>
+                        <td
+                          className={`px-5 py-4 font-black ${
+                            trade.profit.includes("-")
+                              ? "text-red-400"
+                              : "text-emerald-400"
+                          }`}
+                        >
+                          {trade.profit}
+                        </td>
 
-    </tr>
+                      </tr>
 
-  ))}
+                    ))}
 
-</tbody>
+                  </tbody>
 
                 </table>
 
               </div>
 
             </section>
-
-            <footer className="mt-10 border-t border-white/10 pt-6 text-xs leading-relaxed text-gray-500">
-
-              数値・コメントは自己記録用の例です。
-              投資判断や勧誘ではありません。
-
-            </footer>
 
           </div>
 
