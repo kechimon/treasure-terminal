@@ -8,10 +8,10 @@ export const trades = [
   },
 
   {
-    date: "//",
-    pair: "",
-    type: "",
-    profit: "-¥",
+    date: "2026/05/19",
+    pair: "USDJPY",
+    type: "BUY",
+    profit: "+¥1150",
   },
 
 ]
