@@ -11,7 +11,7 @@ export const trades = [
     date: "2026/05/19",
     pair: "USDJPY",
     type: "BUY",
-    profit: "+¥5219",
+    profit: "+¥5100",
   },
 
 ]
