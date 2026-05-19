@@ -47,7 +47,7 @@ export const chartData = [
 
   {
     date: "5/19",
-    equity: 179415
+    equity: 182765
   },
 
 ]
