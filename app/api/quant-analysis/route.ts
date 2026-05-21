@@ -38,9 +38,14 @@ export async function GET() {
 
       },
 
-      updatedAt: new Date().toISOString(),
+      updatedAt: new Date().toLocaleTimeString("ja-JP", {
+        timeZone: "Asia/Tokyo",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
 
-    })
+    });
 
   } catch (error) {
 
@@ -48,7 +53,7 @@ export async function GET() {
 
       error: "analysis failed",
 
-    })
+    });
 
   }
 
