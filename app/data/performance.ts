@@ -1,6 +1,6 @@
 const initial = 100000
 
-const equity = 190700
+const equity = 158456
 
 const profit = equity - initial
 

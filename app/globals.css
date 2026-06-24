@@ -6,3 +6,17 @@ body {
   color: white;
   overflow-x: hidden;
 }
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scan-animation {
+  animation: scan 4s linear infinite;
+}

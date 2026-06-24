@@ -35,4 +35,18 @@ export const trades = [
     profit: "-¥2992",
   },
 
+  {
+    date: "2026/05/21",
+    pair: "GOLD",
+    type: "BUY",
+    profit: "+¥9498",
+  },
+
+  {
+    date: "2026/05/25",
+    pair: "GOLD",
+    type: "BUY",
+    profit: "+¥159",
+  },
+
 ]

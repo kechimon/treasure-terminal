@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 export default function MarketPage() {
 
   const [quantData, setQuantData] = useState<any>(null)
+  const [currentTime, setCurrentTime] = useState("")
 
   const fetchAnalysis = async () => {
 
@@ -37,6 +38,24 @@ export default function MarketPage() {
     return () => clearInterval(interval)
 
   }, [])
+
+  useEffect(() => {
+
+  const timer = setInterval(() => {
+
+    setCurrentTime(
+      new Date().toLocaleTimeString("ja-JP", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      })
+    )
+
+  }, 1000)
+
+  return () => clearInterval(timer)
+
+}, [])
 
   return (
 
@@ -74,18 +93,12 @@ export default function MarketPage() {
           </p>
 
           <h1 className="mt-4 bg-gradient-to-r from-sky-300 via-white to-yellow-200 bg-clip-text text-4xl font-black leading-tight text-transparent md:text-7xl">
-            オレ的クオンツ分析
+            KINZAN的分析
           </h1>
 
           <p className="mt-3 text-sm font-bold tracking-wide text-emerald-400 animate-pulse">
-            ● LIVE 更新：
-            {quantData?.updatedAt
-              ? new Date(quantData.updatedAt).toLocaleTimeString("ja-JP", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })
-              : "取得中"}
-          </p>
+  　　　　　● LIVE 更新：{currentTime}
+　　　　　</p>
 
           <p className="mt-5 max-w-[950px] text-sm leading-7 text-gray-400 md:text-lg md:leading-9">
             USDJPY・XAUUSD の方向性、
@@ -97,7 +110,7 @@ export default function MarketPage() {
 
         {/* GRID */}
 
-        <div className="grid gap-7 xl:grid-cols-2">
+       <div className="grid gap-5 lg:grid-cols-2">
 
           {/* USDJPY */}
 
@@ -107,11 +120,79 @@ export default function MarketPage() {
 
               <p className="text-xs font-black tracking-[0.35em] text-sky-300 uppercase">
                 USDJPY QUANT
+                
               </p>
 
               <h2 className="mt-4 text-3xl font-black md:text-5xl">
                 ドル円
               </h2>
+
+            
+
+<div className="mt-6 rounded-[28px] border border-lime-400/20 bg-lime-500/10 p-4 md:p-6">
+
+  <p className="text-xs font-black tracking-[0.3em] text-lime-300 uppercase">
+    AI SIGNAL
+  </p>
+
+ <h2 className="mt-4 text-3xl md:text-5xl font-black text-lime-300 drop-shadow-[0_0_20px_rgba(34,197,94,0.8)]">
+  {quantData?.usdjpy?.signal}
+</h2>
+
+  <p className="mt-4 text-xl text-white">
+    {quantData?.usdjpy?.outlook}
+  </p>
+  <div className="mt-6">
+
+  <p className="text-xs text-gray-400">
+    AI信頼度
+  </p>
+
+  <div className="mt-2 h-4 overflow-hidden rounded-full bg-white/10">
+
+    <div
+      className="h-full rounded-full bg-lime-400"
+      style={{
+        width: `${quantData?.usdjpy?.confidence || 0}%`
+      }}
+    />
+
+  </div>
+
+  <p className="mt-2 text-2xl font-black text-lime-300">
+    {quantData?.usdjpy?.confidence}%
+  </p>
+
+</div>
+
+  <div className="mt-6 grid grid-cols-2 gap-4">
+
+    <div className="rounded-2xl bg-black/30 p-4">
+      <p className="text-xs text-gray-400">
+        強さ
+      </p>
+      <p className="mt-2 text-2xl font-black text-white">
+        {quantData?.usdjpy?.strength}
+      </p>
+    </div>
+
+    <div className="rounded-2xl bg-black/30 p-4">
+      <p className="text-xs text-gray-400">
+        リスク
+      </p>
+      <p className="mt-2 text-2xl font-black text-white">
+        {quantData?.usdjpy?.riskLevel}
+      </p>
+    </div>
+
+  </div>
+
+  <p className="mt-6 text-sm leading-8 text-gray-200">
+    {quantData?.usdjpy?.beginnerComment}
+  </p>
+
+</div>
+              
 
             </div>
 
@@ -119,8 +200,7 @@ export default function MarketPage() {
 
               {/* STATUS */}
 
-              <div className="grid gap-5 md:grid-cols-3">
-
+              <div className="grid gap-5 md:grid-cols-3grid-cols-1 sm:grid-cols-3">
                 <div className="rounded-[26px] border border-sky-400/20 bg-sky-500/5 p-5 md:p-6">
 
                   <div className="flex items-center gap-3">
@@ -220,7 +300,7 @@ export default function MarketPage() {
                 <iframe
                   src="https://s.tradingview.com/widgetembed/?symbol=FX%3AUSDJPY&interval=60&theme=dark&style=1&timezone=Asia%2FTokyo"
                   width="100%"
-                  height="340"
+                  height="260"
                   frameBorder="0"
                 />
 
@@ -239,10 +319,78 @@ export default function MarketPage() {
               <p className="text-xs font-black tracking-[0.35em] text-yellow-300 uppercase">
                 XAUUSD QUANT
               </p>
+  
 
+  
               <h2 className="mt-4 text-3xl font-black text-yellow-50 md:text-5xl">
                 GOLD
               </h2>
+
+<div className="mt-6 rounded-[28px] border border-lime-400/20 bg-lime-500/10 p-4 md:p-6">
+
+  <p className="text-xs font-black tracking-[0.3em] text-lime-300 uppercase">
+    AI SIGNAL
+  </p>
+
+<h2 className="mt-4 text-5xl font-black text-yellow-300 drop-shadow-[0_0_20px_rgba(250,204,21,0.8)]">
+  {quantData?.xauusd?.signal}
+</h2>
+  <p className="mt-4 text-xl text-white">
+    {quantData?.xauusd?.outlook}
+  </p>
+  <div className="mt-6">
+
+  <p className="text-xs text-gray-400">
+    AI信頼度
+  </p>
+
+  <div className="mt-2 h-4 overflow-hidden rounded-full bg-white/10">
+
+    <div
+      className="h-full rounded-full bg-yellow-400"
+      style={{
+        width: `${quantData?.xauusd?.confidence || 0}%`
+      }}
+    />
+
+  </div>
+
+  <p className="mt-2 text-2xl font-black text-yellow-300">
+    {quantData?.xauusd?.confidence}%
+  </p>
+
+</div>
+
+  
+  
+
+  <div className="mt-6 grid grid-cols-2 gap-4">
+
+    <div className="rounded-2xl bg-black/30 p-4">
+      <p className="text-xs text-gray-400">
+        強さ
+      </p>
+      <p className="mt-2 text-2xl font-black text-white">
+        {quantData?.xauusd?.strength}
+      </p>
+    </div>
+
+    <div className="rounded-2xl bg-black/30 p-4">
+      <p className="text-xs text-gray-400">
+        リスク
+      </p>
+      <p className="mt-2 text-2xl font-black text-white">
+        {quantData?.xauusd?.riskLevel}
+      </p>
+    </div>
+
+  </div>
+
+  <p className="mt-6 text-sm leading-8 text-gray-200">
+    {quantData?.xauusd?.beginnerComment}
+  </p>
+
+</div>
 
             </div>
 
@@ -250,7 +398,7 @@ export default function MarketPage() {
 
               {/* STATUS */}
 
-              <div className="grid gap-5 md:grid-cols-3">
+              <div className="grid gap-5 grid-cols-1 sm:grid-cols-3">
 
                 <div className="rounded-[26px] border border-yellow-500/20 bg-yellow-500/5 p-5 md:p-6">
 
@@ -351,7 +499,7 @@ export default function MarketPage() {
                 <iframe
                   src="https://s.tradingview.com/widgetembed/?symbol=OANDA%3AXAUUSD&interval=60&theme=dark&style=1&timezone=Asia%2FTokyo"
                   width="100%"
-                  height="340"
+                  height="260"
                   frameBorder="0"
                 />
 
