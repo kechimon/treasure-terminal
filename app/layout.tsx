@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "TREASURE TERMINAL | トレーダーによる宝探し",
@@ -12,11 +13,23 @@ export const metadata: Metadata = {
     "FX",
     "トレード",
     "USDJPY",
-     "トレジャーターミナル",
-      "EA",
-       "自動売買",
+    "トレジャーターミナル",
+    "EA",
+    "自動売買",
   ],
-verification: {
-  google: "LrgFiHHa1TlWZQeXvsP4c5_t8Kx6LmifwSj8FkNva6E",
-},
+  verification: {
+    google: "LrgFiHHa1TlWZQeXvsP4c5_t8Kx6LmifwSj8FkNva6E",
+  },
 };
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="ja">
+      <body>{children}</body>
+    </html>
+  );
+}

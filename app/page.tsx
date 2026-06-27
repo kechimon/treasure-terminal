@@ -48,7 +48,7 @@ export default function Home() {
               弱小トレーダーの悪足掻き!
             </p>
             <h1 className="mt-1 bg-gradient-to-r from-sky-300 via-white to-lime-200 bg-clip-text text-1g font-black tracking-[0.1em] text-transparent drop-shadow-[0_0_18px_rgba(125,211,252,0.35)] md:text-2xl md:tracking-[0.18em]">
-              ヌシ投資VLOG
+              TREASURE TERMINAL
             </h1>
           </div>
 
@@ -161,36 +161,39 @@ export default function Home() {
   <br />
   ✔ NASDAQ相関フィルター
   <br />
+  ✔ US500相関フィルター
+  <br />
   ✔ NASDAQ_Same_Direction切替
   <br />
-  ✔ M5・M15・M30マルチスコア
+  ✔ M15・M30 Align判定
   <br />
   ✔ SmartExitエグジット
   <br />
   ✔ DD保護ロジック
   <br />
-  ✔ 深夜取引停止フィルター
+  ✔ 21:00〜翌10:00取引停止
   <br />
-  ✔ 2条件利確システム
+  ✔ 利確条件最適化
   <br />
   ✔ Lot_Size入力対応
   <br />
   ✔ ロンドン・NY特化モデル
 </p>
 
-  <div className="mt-5 rounded-xl border border-lime-400/20 bg-lime-500/5 p-4">
+<div className="mt-5 rounded-xl border border-lime-400/20 bg-lime-500/5 p-4">
 
   <p className="text-2xl font-black text-lime-300">
-    KINZAN Ver31
+    KINZAN Ver36
   </p>
 
   <p className="mt-2 text-gray-300">
-    NASDAQ相関対応モデル
+    マルチ相関フィルターモデル
   </p>
 
   <p className="mt-1 text-xs text-sky-300">
-    現在は異例相場（株高×金高）モードで運用中
+    USIDX・NASDAQ・US500を組み合わせたVer36ベースライン運用
   </p>
+
 
 </div>
 

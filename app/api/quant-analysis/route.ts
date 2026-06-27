@@ -1,52 +1,59 @@
 export async function GET() {
   try {
     return Response.json({
-   usdjpy: {
+     usdjpy: {
   signal: "🟢 BUY",
   overall: "強気",
   outlook: "押し目買い優勢",
-  confidence: 84,
+  confidence: 83,
   strength: "★★★★☆",
   riskLevel: "★★★★☆",
   trend: "上昇トレンド",
-  volatility: "高め",
+  volatility: "中〜高",
   sentiment: "ドル買い継続",
 
   analysis: [
-    "USIDXが年初来高値圏を維持",
-    "FRBのタカ派観測がドルを支援",
-    "円安継続で買い優勢"
+    "USIDXが高値圏を維持",
+    "FRBの高金利観測がドルを支援",
+    "円安基調継続で押し目買い優勢"
   ],
 
   beginnerComment:
-    "ドル円は依然として強い上昇トレンド。介入警戒感はあるものの、流れはドル買い優勢の状況です。"
+    "ドル円は上昇トレンドを維持。短期的な調整はあっても、現状は押し目買い優勢の流れです。"
 },
 
 xauusd: {
-  signal: "🔴 SELL",
-  overall: "弱気",
-  outlook: "戻り売り優勢",
-  confidence: 72,
-  strength: "★★☆☆☆",
+  signal: "🟡 HOLD",
+  overall: "中立",
+  outlook: "USIDX・NASDAQ監視",
+  confidence: 65,
+  strength: "★★★☆☆",
   riskLevel: "★★★★☆",
-  trend: "下落調整",
+  trend: "高値圏調整",
   volatility: "高ボラティリティ",
-  sentiment: "ドル高圧力",
+  sentiment: "方向感模索",
 
   analysis: [
-    "USIDX上昇がゴールドを圧迫",
-    "米金利高が金の重石",
-    "安全資産需要よりドル需要が優勢"
+    "USIDX高止まりが上値を抑制",
+    "NASDAQとの同方向相場が継続",
+    "米指標待ちで方向感不足"
   ],
 
   beginnerComment:
-    "ゴールドはドル高と高金利環境が逆風。短期反発はあっても現状は戻り売り優勢の地合いです。"
+    "ゴールドはドル高が重石となる一方で買い支えも強く、方向感を探る展開。USIDXの動きに注目です。"
 },
 
-marketMood: "🟠 RISK ON",
+marketMood: "🟡 CAUTION",
 
 marketComment:
-  "市場の主導権は引き続きドル側。USDJPYは押し目買い優勢を維持している一方、XAUUSDはドル高・金利高が重石となり軟調推移。KINZANではUSIDXとNASDAQの相関変化を最重要ポイントとして監視し、ゴールドは戻り売り優勢シナリオを継続する。",
+  "市場の主導権は依然としてUSIDX。USDJPYは押し目買い優勢を維持している一方、XAUUSDはUSIDXとNASDAQの影響を受けやすい展開。KINZANではUSIDXを最重要指標とし、NASDAQ相関フィルターを補助判断として活用する。",
+
+updatedAt: new Date().toLocaleTimeString("ja-JP", {
+  timeZone: "Asia/Tokyo",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+}),
     });
   } catch (error) {
     return Response.json({
@@ -54,4 +61,3 @@ marketComment:
     });
   }
 }
-
