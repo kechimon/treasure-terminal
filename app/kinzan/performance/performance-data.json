@@ -19558,5 +19558,20 @@
     "commission": -8.0,
     "swap": 0.0,
     "profit": -883.0
+  },
+  {
+    "time_open": "2026.06.26 19:20:49",
+    "ticket": "17996572",
+    "symbol": "XAUUSD.raw",
+    "type": "sell",
+    "lot": "0.02",
+    "price_open": "4089.14",
+    "sl": "4095.53",
+    "tp": "4000.97",
+    "time_close": "2026.06.29 01:19:17",
+    "price_close": "4056.85",
+    "commission": -8.0,
+    "swap": 88.0,
+    "profit": 10448.0
   }
 ]
