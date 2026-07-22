@@ -21,48 +21,48 @@ export type AnalysisResult = {
 }
 
 export function analyze(data: MarketData): AnalysisResult {
-  let score = 50
+  let score = 0
 
   // EMA Trend
 if (
   data.ema20 > data.ema50 &&
   data.ema50 > data.ema200
 ) {
-  score += 30
+  score += 40
 } else if (
   data.ema20 < data.ema50 &&
   data.ema50 < data.ema200
 ) {
-  score -= 30
+  score -= 40
 }
 
   // MACD
   if (data.macd > data.macdSignal) {
-    score += 20
+    score += 25
   } else {
-    score -= 20
+    score -= 25
   }
 
   // RSI
   if (data.rsi >= 45 && data.rsi <= 65) {
-    score += 10
+    score += 15
   } else if (data.rsi > 70) {
     score -= 15
   }
 
     // ATR
   if (data.atr < 3) {
-    score += 5
+    score += 10
   }
 
   // Trend Strength
   if (data.trendStrength > 30) {
-    score += 10
+    score += 15
   }
 
   // Bollinger Bands
   if (data.bbMiddle > data.ema20) {
-    score += 5
+    score += 10
   }
 
   let signal: "BUY" | "SELL" | "HOLD" = "HOLD"
@@ -73,7 +73,10 @@ if (
     signal = "SELL"
   }
 
-  const confidence = Math.max(1, Math.min(score, 99))
+  const confidence = Math.max(
+  1,
+  Math.min(Math.round((score + 100) / 2), 99)
+)
 
   return {
     signal,
