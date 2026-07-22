@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="人力0%製作所のオタクニュースページ。アニメ・AI関連のネタをまとめて紹介予定。準備中です。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jinriki-zero.vercel.app/news.html">
+<meta property="og:title" content="オタクニュース | 人力0%製作所">
+<meta property="og:description" content="アニメ・AI関連のニュースをまとめて紹介予定。準備中です。">
+<title>オタクニュース(準備中) | 人力0%製作所</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+  (function () {
+    try {
+      var ref = document.referrer;
+      var isExternal = false;
+      if (ref) {
+        var refOrigin = new URL(ref).origin;
+        isExternal = refOrigin !== window.location.origin;
+      }
+      if (!isExternal) {
+        document.documentElement.classList.add("age-confirmed");
+      }
+    } catch (e) {
+      document.documentElement.classList.add("age-confirmed");
+    }
+  })();
+</script>
+
+<div class="age-gate" data-age-gate>
+  <div class="age-gate__card">
+    <span class="age-gate__name">管理人</span>
+    <p class="age-gate__label">✧ AGE CHECK ✧</p>
+    <h2 class="age-gate__title">ちょっと待った!!<br>先に進む前に一つだけ聞かせて</h2>
+    <p class="age-gate__body">
+      ここから先、深夜テンションで描いたちょっとエッチなページも
+      混ざってくるんだ。だからこれだけは確認させてね。<br>
+      キミ、ちゃんと18歳以上の大人だよね?
+    </p>
+    <div class="age-gate__buttons">
+      <button class="age-gate__btn age-gate__btn--yes" data-age-yes>うん、大人だよ(18+)</button>
+      <button class="age-gate__btn age-gate__btn--no" data-age-no>ごめん、まだ早いかも</button>
+    </div>
+  </div>
+</div>
+
+<div class="marquee">
+  <div class="marquee__track">
+    <span>★ニュースページ★ 第1弾更新しました!</span>
+    <span>アニメ・AIのネタ、ぼちぼち増やしていきます</span>
+    <span>気になるネタあったら教えて!</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="logo">人力0%<span>.</span>製作所</a>
+    <nav class="site-nav">
+      <a href="index.html">作品一覧</a>
+      <a href="chapter2.html">最新話</a>
+      <a href="gallery.html">投稿ギャラリー</a>
+      <a href="news.html">オタクニュース</a>
+      <a href="index.html#about">このサイトについて</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:24px;">
+  <div class="hero__inner" style="flex-direction:column; align-items:flex-start;">
+    <div class="hero__content" style="flex:1 1 100%; max-width:640px;">
+      <p class="hero__sparkle">✧･ﾟ: *✧･ﾟ:* NEWS *:･ﾟ✧*:･ﾟ✧</p>
+
+      <div class="work-title">
+        <p class="work-title__label">オタクニュース</p>
+        <h1 class="work-title__catch">アニメ・AI、気になるネタを勝手にまとめる</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="section__inner" style="max-width:760px;">
+
+    <article class="news-post">
+      <span class="news-post__tag">AI</span>
+      <h2 class="news-post__title">【爆笑】農水省の“クソダサ”ポスター、AIに再現させたら負けた件</h2>
+      <p class="news-post__date">2026.07.13</p>
+      <p class="news-post__body">
+        農林水産省の公式Xが6月29日に投稿した「佃煮の日」ポスターが、
+        2000年代のWordで作ったような虹色グラデーションと集中線、目が飛び出た3人組イラストという
+        強烈な仕上がりで話題に。コメント欄には「AIには出せない温かみがあって好き」
+        「AI使わないところがほんと良い」という声が並んだ。<br><br>
+        これを受けてITmediaが「今のAIならこの雰囲気も作れるのでは?」とChatGPTとGeminiに
+        同じ路線のポスター制作を挑戦させたところ、結果はきれいに整いすぎて、あの“味”が
+        再現できなかったとのこと。バランスが良すぎて、逆に心に刺さらなかったらしい。
+      </p>
+      <p class="news-post__source">元ネタ: <a href="https://www.itmedia.co.jp/news/articles/2607/06/news053.html" target="_blank" rel="noopener noreferrer">ITmedia NEWS</a></p>
+      <div class="news-post__comment">
+        <p class="news-post__comment-label">管理人より</p>
+        <p class="news-post__comment-body">
+          「AIに負けたくないなら、逆に下手になれ」という逆説、地味に深い。
+          このサイトも変に整えすぎず、たまにはこのくらい振り切ってもいいのかもしれない。
+        </p>
+      </div>
+    </article>
+
+    <article class="news-post">
+      <span class="news-post__tag news-post__tag--anime">アニメ</span>
+      <h2 class="news-post__title">【爆笑】燃堂力「ラーメン食いに行こーぜー!」を30分間ひたすら聞ける耐久動画が爆誕</h2>
+      <p class="news-post__date">2026.07.13</p>
+      <p class="news-post__body">
+        7月11日の「ラーメンの日」を記念して、『斉木楠雄のΨ難』でおなじみ燃堂力(CV: 小野大輔)の
+        名台詞「ラーメン食いに行こーぜー!」だけをひたすら30分間聞き続けられる耐久動画が公開された。
+        用途も需要も謎だが、とにかく振り切ったネタ企画として話題になっている。<br><br>
+        正直「誰が得するんだ」と二度見したけど、こういう意味不明な全力投球、嫌いじゃない。
+        深夜テンションでこのサイト作ってる身としては、なんか妙に親近感が湧く企画だった。
+      </p>
+      <p class="news-post__source">元ネタ: <a href="https://news.denfaminicogamer.jp/kikakuthetower/260701x" target="_blank" rel="noopener noreferrer">電ファミニコゲーマー</a></p>
+      <div class="news-post__comment">
+        <p class="news-post__comment-label">管理人より</p>
+        <p class="news-post__comment-body">
+          30分「ラーメン食いに行こーぜー!」しか言わない動画、逆に一周回って寝る前のASMR代わりに使えそう。
+          誰か本当に30分間ちゃんと聞いたのか気になる。
+        </p>
+      </div>
+    </article>
+
+    <article class="news-post">
+      <span class="news-post__tag news-post__tag--anime">アニメ</span>
+      <h2 class="news-post__title">【朗報】『攻殻機動隊』新作TVアニメがついに放送開始</h2>
+      <p class="news-post__date">2026.07.10</p>
+      <p class="news-post__body">
+        士郎正宗氏による伝説的SF漫画を原作とする『攻殻機動隊』シリーズ。
+        その最新作となるTVアニメ『攻殻機動隊 THE GHOST IN THE SHELL』が、
+        カンテレ・フジテレビ系「火アニバル!!」枠にて2026年7月から放送スタートした。
+        毎週火曜23時からの放送で、これまで劇場版・TVシリーズと数々の形でアニメ化されてきた
+        人気シリーズがまた新たな一歩を踏み出すことに。<br><br>
+        「攻殻」は世代を超えて語り継がれてる作品だから、新作が出るたびにちょっとした
+        お祭り騒ぎになる印象がある。今回もどんな進化を見せてくれるか楽しみ。
+      </p>
+      <p class="news-post__source">元ネタ: <a href="https://www.famitsu.com/article/202607/79761" target="_blank" rel="noopener noreferrer">ファミ通.com</a></p>
+      <div class="news-post__comment">
+        <p class="news-post__comment-label">管理人より</p>
+        <p class="news-post__comment-body">
+          「電脳化」とか「義体」みたいな設定、令和のAI時代に改めて見ると
+          違う意味で刺さるものがある。昔のSFが現実に追いつかれてる感じ、正直ちょっと怖い。
+        </p>
+      </div>
+    </article>
+
+    <article class="news-post">
+      <span class="news-post__tag">AI</span>
+      <h2 class="news-post__title">【朗報】Claude Fable 5・Mythos 5、輸出規制解除でグローバル展開再開</h2>
+      <p class="news-post__date">2026.07.10</p>
+      <p class="news-post__body">
+        Anthropicが2026年6月9日にリリースした最新モデル「Claude Fable 5」と「Claude Mythos 5」。
+        ところがリリース直後の6月12日、アメリカ商務省による輸出規制の関係で、
+        まさかの利用停止という事態になっていた。しかし6月30日に規制が解除され、
+        7月1日には利用が正式に再開されたとのこと。<br><br>
+        このサイトもClaudeを使って漫画を作ってる身としては、他人事じゃないニュース。
+        普段使ってるAIが急にリリース直後で使えなくなるって、普通に怖い。
+      </p>
+      <p class="news-post__source">元ネタ: <a href="https://www.anthropic.com/news/fable-mythos-access" target="_blank" rel="noopener noreferrer">Anthropic公式発表</a></p>
+      <div class="news-post__comment">
+        <p class="news-post__comment-label">管理人より</p>
+        <p class="news-post__comment-body">
+          正直「規制解除されました」ってサラッと書いてあるけど、
+          裏では結構バタバタしてたんだろうな…と勝手に想像してる。
+          ともあれ無事使えるようになって一安心。
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer__inner">
+    <div class="counter">
+      ACCESS COUNTER
+      <span class="counter__digits" data-visit-counter>
+        <span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span>
+      </span>
+    </div>
+    <span class="under-construction">under construction</span>
+    <span class="footer__copy">© 2026 人力0%製作所 — このサイトはテンプレートです。自由に改変してください。</span>
+  </div>
+</footer>
+
+<button class="scroll-top-btn" data-scroll-top aria-label="ページの上に戻る">▲</button>
+
+<script src="script.js"></script>
+</body>
+</html>
